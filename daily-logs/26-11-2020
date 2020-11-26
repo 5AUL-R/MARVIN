@@ -1,0 +1,8 @@
+26/11/2020
+I got him to stand on his own and move properly!!!
+I inflated the tyres and that seemed to solve the issue with ROS detecting too much movement.  
+TO get him to run I ran the following commands;  
+$ roscore  
+$ roslaunch marvin_control marvin_transport.launch  
+I tried to ssh into him with the control laptop, but ran into issues with MARVIN's network connection I suspect I need to connect to the 'MARVIN' network   
+That's tomorrow's problem though
