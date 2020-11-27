@@ -15,3 +15,7 @@ Turn on the xbox 360 controller (ensure it is paired with the dongle attahced to
 
 # Eye colour control
 # Torso and head control
+## Items to do   
+1. Check the fuses on the control board, have the blown?  
+2. Check the voltage to be supplied to the control board, is the USB connection sufficient, or does it require the jack as well?  
+3. Additionally, ensure the usb connection works (the wire has continuity).
