@@ -1,0 +1,21 @@
+- Got a wireless connection with MARVIN via SSH!!!  
+The method is: Open up a terminal on MARVIN, run $ ifconfig. In there you need to find the ip address listed under eth0, it will look like "inet addr: 192.168.0.100"  
+Once you;ve found the ip addres run the following command on the control laptop: $ ssh <ip address>  
+Boom, you now have wireless terminal access to MARVIN!  
+**However** it seems that ROS won't run on teh NUC now! When trying to run $roscore I get an error "unable to connect to my own server at [http://marvin:52553/].  
+This usually means that the network is not configured properly.  
+A common cause is that the machine cannot ping itself, Please check for errors by running $ ping marvin  
+For more tips, please see:  
+(http://www.ros.org/wiki/ROS/NetworkSetup)[http://www.ros.org/wiki/ROS/NetworkSetup]  
+the traceback error was written to the log file"  
+So it seems resetting the network adapter has caused some issues.
+  
+- Made an adaptor to connect the power distribution board to the DC input jack  
+- Emailed Callum about the power wiring and the adaptor, there's a lot of odd features to the way it's been wired.  
+Doubled checked the USB hub that wasn't working before I pulled all the electronics out of MARVIN, it does work I suspect it just wasn't plugged in.  
+  
+**Tasks for tomorrow**  
+- Get a power supply from the techs that can supply roughly twice the current the NUC adapter can (see Callum's 489 report for details)  
+- Re-organise all the wiring into the NUC, probably worht talking to the techs about what's the best way to make it easier to come back and take things out (i.e. an alternative to zip ties).  
+Perhaps double sided velcro?  
+- Hopefully get the OK from Callum
