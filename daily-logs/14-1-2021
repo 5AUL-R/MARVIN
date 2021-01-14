@@ -1,0 +1,31 @@
+# Upgrading Ubuntu: Part 2!
+## Background
+Yesterday roved much more problematic than expected (although in hindsight I can't believe I expected working with an old NUC would be straightforward.  
+Essentially I couldn't upgrade the Ubuntu version as planned because there are an assortment of difficult issues that will not allow the device to update:  
+- To upgrade versions, all software must be up to date. 
+- This requires running: apt-get update, and apt-get upgrade
+- The issue is that there are missing packages from both of these commands
+- The regular fix is by running an assortment of other commands, like "dist-update" and "update-misssing"
+- When running these extra commands I get errors that the keys required to fetch the packages are missing
+- The fix for this is to make new ones, and when I do THAT I get an error with being able to get the keys 
+- This issue requires changing the config file for network access for the Advanced Package Tool  
+- After finding that this config file had Callum's details and then changing them to mine, trying to run the commands to find and fetch missing packages returns the error "403 forbbidden"  
+Now these issues are probalby somewhat fixable, the issue is that this is turning into a hydra of issue - cut the head of one, two more take it's place.  
+Today when trying updating software via the graphical updator, the program freezes and crashes!    
+I suspect this is to do with working on an old NUC.   
+  
+I decided to cut my losses trying to upgrade the safe way that changes as little things as possible, because it simply will not work, it will be sandwhiching band aids on what seems to be quite structural issues.  
+The best way forward is to just do a fresh upgrade.  
+I've backed up a system image, and the catkin workspace as well. 
+
+## Moving forward
+In trying to just run a live bootable USB I am finding that the NUC will not even detect the USB.  
+This may be because I have tried to burn another ISO on the USB before wiping it of the original system image that I had burned onto it yesterday.  
+So my plan is as follows:  
+- Double check that the USB is not detectable in the BIOS settings of the NUC  
+- If it isn't, wipe the USB and clear it's partitions (UGH)  
+- Re-write the image for Ubuntu 18.04 LTS  
+- Run it live on the NUC  
+- Provided that works, then I will use that to upgrade ubuntu  
+- If it doesn't, I will double check that doesn;t mean the NUC won;t detect my USB if I wipe it.  
+- Provided that isn;t teh case, I will wipe the NUC and then boot from the drive, performing a fresh install
