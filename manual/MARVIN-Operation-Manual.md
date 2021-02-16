@@ -38,3 +38,37 @@ This manual will assume that you are familiar with the basic operation and struc
 ## 2. MARVIN's Hardware Systems
 
 ## 3. MARVIN's Software Systems
+
+## 4. Getting Started  
+Here is the step by step process to get MARVIN operational.
+### 4.1 Ensure power
+First, ensure that there is adequate power supplied to the NUC and the power board.  
+You should be able to tell as the NUC will have a blue dot on the it's far left corner to indicate power.  
+The power distribution board has a blue LED to indicate power for each of it's three rails (5V, 12V and 24V).  
+Once you have ensured that all the blue LEDs are lit you may proceed to the next step.
+### 4.2 Establish a method of control
+MARVIN runs ROS on top of a desktop computer environment, this means he can be controlled via two methods. You can either establish an SSH connection with marvin, this gives you terminal access, which should be adequate for use in the field.  
+Alternatively, you can control MARVIN with a full desktop environment (connect a monitor, mouse and keyboard, and use MARVIN as you would with any other dekstop PC). This method is not preferable when using the RMP as MARVIN is esentially tethered to your workstation and you run the risk of pulling wires and damaging MARVIN.  
+However, this method is neccessary for quick acces to the desktop and if you need acces to GUI applications.  
+
+#### 4.2.1 Establish SSH
+#### 4.2.2 Establish a full desktop environment
+### 4.x Turning on the RMP
+First, MARVIN needs to be powered on.  
+The Segway RMP has a seperate power supply from the rest of MARVIN's systems, so this is the first thing that needs to be turned on.  
+TO turn on the RMP, you must press and hold the green power button for three seconds this turns on the control system for the RMP.  
+Once the green button has lit up, you must press the yellow power button for three seconds, this turns on the motors once the yellow button has lit up you should hear some fans whir - this means the motors have been activated.  
+The final step to turn on the balance mode setting (the blue button on the bottom right). This is required as the RMP is not capable of moving from tractor mode into an upright position.  
+The RMP must be lifted so that it is standing upright, while continuing to lift the RMP you must press and hold the balance mode button for three seconds. You will know if you have done this correctly, as the RMP will beep and should be standing on it's own.  
+### 4.3 Startup commands  
+After you have supplied power, turned on the NUC and RMP and established a connection (via with SSH or direct desktop) you can now start controlling MARVIN.  
+The first command to issue is:  
+`$ roscore`  
+This is the core command for ROS, and starts up nodes for essential ROS services.  
+Once you have run `roscore` succesfully you can start launching your wanted nodes. You have two options for how you do this:  
+1. You can launch individual nodes directly. This isn't ideal if you're testing a lot of nodes and in MARVIN's case this happens often when testing even basic fuctionality.  
+2. You can run launch files.   
+#### 4.3.1 Launch files
+MARVIN has a range of launch files for testing various aspects of functionality, below is a list of all the launch files, and what they do:  
+
+
