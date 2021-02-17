@@ -1,5 +1,5 @@
 # MARVIN operation MANUAL  
-Last edited 11/2/2021  
+Last edited xx/2/2021  
 
 ## Table of contents
 ## 1.0 Introduction  
@@ -56,8 +56,9 @@ However, this method is neccessary for quick acces to the desktop and if you nee
 ### 4.x Turning on the RMP
 First, MARVIN needs to be powered on.  
 The Segway RMP has a seperate power supply from the rest of MARVIN's systems, so this is the first thing that needs to be turned on.  
-TO turn on the RMP, you must press and hold the green power button for three seconds this turns on the control system for the RMP.  
-Once the green button has lit up, you must press the yellow power button for three seconds, this turns on the motors once the yellow button has lit up you should hear some fans whir - this means the motors have been activated.  
+To turn on the RMP, you must press and hold the green power button for three seconds this turns on the control system for the RMP.  
+Once the green button has lit up, you must press the yellow power button for three seconds, this turns on the motors once the yellow button has lit up you should hear some fans whir - this means the motors have been activated.   
+If the yellow button does not light up after pressing it for three seconds, ensure the fail safe button is fully pressed down. This is usually secured by a 3D printed green latch with a yellow cor attached.  
 The final step to turn on the balance mode setting (the blue button on the bottom right). This is required as the RMP is not capable of moving from tractor mode into an upright position.  
 The RMP must be lifted so that it is standing upright, while continuing to lift the RMP you must press and hold the balance mode button for three seconds. You will know if you have done this correctly, as the RMP will beep and should be standing on it's own.  
 ### 4.3 Startup commands  
