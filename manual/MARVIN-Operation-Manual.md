@@ -38,22 +38,34 @@ This manual will assume that you are familiar with the basic operation and struc
 ## 2. MARVIN's Hardware Systems
 Try and Link these....  
 MARVIN has 7 main hardware systems:  
-1. Torso control board [Go to Real Cool Heading section](#real-cool-heading)
-2. Eye RGB driver board
-3. Sensor Board
-4. The Intel Next Unit of Computing (NUC)
-5. The Segway Robotic Mobility Platform (RMP)
-6. Power Distribution board 
-7. The torso and head
+1. [Torso control board](#torso-control-board-heading)
+2. [Eye RGB driver board](#eye-rgb-driver-board-heading)
+3. [Sensor Board](#sensor-board-heading)
+4. [The Intel Next Unit of Computing (NUC)](#nuc-heading)
+5. [The Segway Robotic Mobility Platform (RMP)](#rmp-heading)
+6. [Power Distribution board](#power-distribution-board-heading)
+7. [The torso and head](#torso-and-head-heading)
 
 ### 2.1 Torso control board
-#real-cool-heading
+#torso-control-board-heading
+The torso control board and the [eye RGB driver board](#eye-rgb-driver-board-heading) work in conjuction with eachother. They are connected via a four pin cable (for what seems to be a power).  
+The toro control board has a mini-USB cable that connects to the NUC via a serial port (in the same fashion as an Arduino type board).   
+However, the Torso control board is the only one that communicates with the NUC directly. as the eye RGB driver board does not have any direct connection to teh NUC.  
+The torso control board has a series of JST connectors that connect to the linear actuator driver in the back of MARVIN's torso. The cables and their respective JST plug on the board have matching labels. At the time of writing for this manual, not all the JST plugs on the torso control board for communication to the linear actuator driver are used.
 ### 2.2 Eye RGB driver board
+#eye-rgb-driver-board-heading
 ### 2.3 Sensor Board
+#sensor-board-heading
 ### 2.4 The Intel Next Unit of Computing (NUC)
+#nuc-heading
 ### 2.5 The Segway Robotic Mobility Platform (RMP)
+#rmp-heading
 ### 2.6 Power Distribution board 
+#power-distribution-board-heading
 ### 2.7 Torso and head
+#torso-and-head-heading
+MARVIN's torso is controlled by a series of linear actuators and subsequently a driver for these linear actuators. Communication from the NUC to the driver for the linear actuators is handled by the [torso control board](#torso-control-board-heading). MARVIN's torso can extend in various directions and subsequently various poses. 
+MARVIN's head and neck is actuted by two servo motors, these are driven directly from the torso control board. The head is equiped with two RGB eyes and a spotlight.
 
 ## 3. MARVIN's Software Systems
 
