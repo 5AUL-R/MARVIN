@@ -36,6 +36,24 @@ MARVIN's software systems are based around Robot Operating System (ROS).
 This manual will assume that you are familiar with the basic operation and structure of ROS software. For example you should already know that everything within ROS has a node, nodes are typically abstracted from the hardware as much as possible, nodes are designed for one specific purpose and communicate via 'subscribing' and 'publishing' to channels reffered to as topics.  
 
 ## 2. MARVIN's Hardware Systems
+Try and Link these....  
+MARVIN has 7 main hardware systems:  
+1. Torso control board [Go to Real Cool Heading section](#real-cool-heading)
+2. Eye RGB driver board
+3. Sensor Board
+4. The Intel Next Unit of Computing (NUC)
+5. The Segway Robotic Mobility Platform (RMP)
+6. Power Distribution board 
+7. The torso and head
+
+### 2.1 Torso control board
+#real-cool-heading
+### 2.2 Eye RGB driver board
+### 2.3 Sensor Board
+### 2.4 The Intel Next Unit of Computing (NUC)
+### 2.5 The Segway Robotic Mobility Platform (RMP)
+### 2.6 Power Distribution board 
+### 2.7 Torso and head
 
 ## 3. MARVIN's Software Systems
 
