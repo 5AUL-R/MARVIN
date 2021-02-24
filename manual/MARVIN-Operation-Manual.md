@@ -41,7 +41,7 @@ This manual will assume that you are familiar with the basic operation and struc
 
 ## 4. Getting Started  
 Here is the step by step process to get MARVIN operational.
-### 4.1 Ensure power
+### 4.1 Power
 First, ensure that there is adequate power supplied to the NUC and the power board.  
 You should be able to tell as the NUC will have a blue dot on the it's far left corner to indicate power.  
 The power distribution board has a blue LED to indicate power for each of it's three rails (5V, 12V and 24V).  
@@ -52,6 +52,27 @@ Alternatively, you can control MARVIN with a full desktop environment (connect a
 However, this method is neccessary for quick acces to the desktop and if you need acces to GUI applications.  
 
 #### 4.2.1 Establish SSH
+##### 4.2.2 First time setup for SSH
+To do this for the first time you will have to setup MARVIN with a full desktop environment. To find out how to do so, see th guide below.  
+To establish an ssh connection with MARVIN the first thing you will need to do is find the IP address for the NUC.  
+This can be done by setting up the NUC with a display, keyboard and mouse.  
+Once you are logged into the dekstop, opena terminal and run:  
+`$ ifconfig`  
+This will display all the information for all the network adaptors connected to the NUC.  
+What we care about is the IP address of the wireless adaptor, this should be next to the section titled wLan0 and next to the field: `inet addr:`  
+Write this IP address down.  
+Connect the NUC to the wifi network you intend to use for SSH, then shut down the NUC, disconnect the keyboard mouse and any other cables connected to MARVIN.  
+You may now proceed to connecting to MARVIN via SSH.  
+##### 4.2.3 Establishing an SSH Connection
+Once you have got the IP address for the NUC, make sure both the NUC and the control laptop are on and connected to the same wifi network.  
+On your control laptop run:  
+` ssh marvin@<IP ADDRESS>`  
+With "<IP ADDRESS>" being the IP address for the NUC you found in the step above.  
+If your connection was sucessful you will either see the terminal ask for a "y/n" response, enter `$ y` or you will see your terminal switch to MARVIN, congratulations!  
+If the response from the SSH command takes more than a few seconds this typically means there isn't a connect, in which case you can save yourself the hassle of waiting by killing the process, press ctrl + c. And re-run the command.  
+If this doesn't work, or you get for example "connection refused" ensure that the NUC is turned on and connected to the same network the control laptop is connected to. (You will have to connect a keyboard and mouse to the NUC to ensure this.  
+If you continue to have trouble connecting try restarting both the NUC and the control Laptop.
+   
 #### 4.2.2 Establish a full desktop environment
 ### 4.x Turning on the RMP
 First, MARVIN needs to be powered on.  
