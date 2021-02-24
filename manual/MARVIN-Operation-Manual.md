@@ -91,6 +91,7 @@ Once you have run `roscore` succesfully you can start launching your wanted node
 1. You can launch individual nodes directly. This isn't ideal if you're testing a lot of nodes and in MARVIN's case this happens often when testing even basic fuctionality.  
 2. You can run launch files.   
 #### 4.3.1 Launch files
-MARVIN has a range of launch files for testing various aspects of functionality, below is a list of all the launch files, and what they do:  
+MARVIN has a range of launch files for testing various aspects of functionality, below is a list of all the launch files, and what they do: 
+
 
 
