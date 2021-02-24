@@ -89,9 +89,18 @@ The first command to issue is:
 This is the core command for ROS, and starts up nodes for essential ROS services.  
 Once you have run `roscore` succesfully you can start launching your wanted nodes. You have two options for how you do this:  
 1. You can launch individual nodes directly. This isn't ideal if you're testing a lot of nodes and in MARVIN's case this happens often when testing even basic fuctionality.  
-2. You can run launch files.   
+2. You can run launch files.     
+
+To run a launch file run the command:  
+`$ roslaunch marvin_control <LAUNCH FILE NAME>`
+In the directory: marvin/catkin_ws/src/marvin_control/  
+You will find the launch files for MARVIN. There is a range of launch files for testing various aspects of functionality.  
+
+
+
 #### 4.3.1 Launch files
-MARVIN has a range of launch files for testing various aspects of functionality, below is a list of all the launch files, and what they do: 
+MARVIN has a range of launch files for testing various aspects of functionality.  
+
 
 
 
