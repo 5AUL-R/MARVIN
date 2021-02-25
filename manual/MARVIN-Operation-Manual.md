@@ -60,8 +60,16 @@ The torso control board has a series of JST connectors that connect to the linea
 #nuc-heading
 ### 2.5 The Segway Robotic Mobility Platform (RMP)
 #rmp-heading
-### 2.6 Power Distribution board 
+### 2.6 Power Distribution board and MARVIN's power distribution system
 #power-distribution-board-heading
+The power distribution board is not strictly the centralised control for MARVIN's power system. The NUC is powered independantly to the power distribution board via a buck convertor and a battery pack.  
+#### 2.6.1 Power requirements and use
+Three 8000mAh, 20V [discharge specs? Talk to Tim] LiPo battery packs are used to fully operate MARVIN without a tether for power. One powers the NUC, two supply power to the power distribution board via a splitter cable, with two pairs of bullet connectors.  
+**It should be noted that MARVIN has no capability for battery voltage / charge management and when using LiPO batteries you should have your own system in place for monitoring battery voltage (a screamer circuit for example) and all precautions from the technicians should be strictly adhered to.**  
+If you're unsure about *anything* to do with handling and use of LiPo batteries, talk to Tim and Jason.  
+LiPo batteries create Hydrogen Flouride gas when they are dropped, used below thier *safe* voltage level, overcharged or punctured. This can happen from regular use, and if you take care of them it won;t cause a problem as this gas is still contained by the plastic sealing over the battery (hence why soemtime LiPo packs can be puffy).
+
+#### 2.6.2 
 ### 2.7 Torso and head
 #torso-and-head-heading
 MARVIN's torso is controlled by a series of linear actuators and subsequently a driver for these linear actuators. Communication from the NUC to the driver for the linear actuators is handled by the [torso control board](#torso-control-board-heading). MARVIN's torso can extend in various directions and subsequently various poses. 
