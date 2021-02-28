@@ -1,8 +1,18 @@
 # MARVIN operation MANUAL  
-Last edited xx/2/2021  
+Last edited xx/2/2021, by Saul Ramsay.  
+Email: ramsaysaul@myvuw.ac.nz, ramsay.saul@gmail.com  
+Github: [5AUL-R](https://github.com/5AUL-R)  
+For more detailed logs of troubleshooting and working with MARVIN, the repo can be found at:  
+[https://github.com/5AUL-R/MARVIN](https://github.com/5AUL-R/MARVIN) 
+
 
 ## Table of contents
-## 1.0 Introduction  
+#### 1 [Introduction](#introduction-heading)
+#### 2 [MARVIN's Hardware Systems](#hardware-heading)
+#### 3 [MARVIN's Software Systems](#software-heading)
+#### 4 [Getting Started](#getting-started-heading)
+## 1.0 Introduction
+#introduction-heading  
 Mobile Autonomous Robotic Vehicle for Indoor Navigation V2.0 or MARVIN (V2) for short is a Robot originally designed for use as a prototype security system by Dale Carnegie.  
 His use as a research tool over time has shifted his uses from security to Human Robot Interaction.   
 The most recent project he has been utilised for was Callum Robinson's Masters thesis. He modified MARVIN's hardware and software systems to suit his change into an HRI platform.
@@ -36,7 +46,9 @@ MARVIN's software systems are based around Robot Operating System (ROS).
 This manual will assume that you are familiar with the basic operation and structure of ROS software. For example you should already know that everything within ROS has a node, nodes are typically abstracted from the hardware as much as possible, nodes are designed for one specific purpose and communicate via 'subscribing' and 'publishing' to channels reffered to as topics.  
 
 ## 2. MARVIN's Hardware Systems
-Try and Link these....  
+#hardware-heading  
+  
+![](hardware-diagram.png)
 MARVIN has 7 main hardware systems:  
 1. [Torso control board](#torso-control-board-heading)
 2. [Eye RGB driver board](#eye-rgb-driver-board-heading)
@@ -50,16 +62,25 @@ MARVIN has 7 main hardware systems:
 #torso-control-board-heading
 The torso control board and the [eye RGB driver board](#eye-rgb-driver-board-heading) work in conjuction with eachother. They are connected via a four pin cable (for what seems to be a power).  
 The toro control board has a mini-USB cable that connects to the NUC via a serial port (in the same fashion as an Arduino type board).   
-However, the Torso control board is the only one that communicates with the NUC directly. as the eye RGB driver board does not have any direct connection to teh NUC.  
-The torso control board has a series of JST connectors that connect to the linear actuator driver in the back of MARVIN's torso. The cables and their respective JST plug on the board have matching labels. At the time of writing for this manual, not all the JST plugs on the torso control board for communication to the linear actuator driver are used.
+However, the Torso control board is the only one that communicates with the NUC directly. as the eye RGB driver board does not have any direct connection to the NUC.  
+The torso control board has a series of JST connectors that connect to the linear actuator driver in the back of MARVIN's torso. The cables and their respective JST plug on the board have matching labels. At the time of writing for this manual, not all the JST plugs on the torso control board for communication to the linear actuator driver are used.  
+  
+![](torso-board.jpg)
 ### 2.2 Eye RGB driver board
-#eye-rgb-driver-board-heading
+#eye-rgb-driver-board-heading  
+The eye RGB driver board controls the colour of MARVIN's eyes, as the name suggests.The board has a 3.5*mm audio jack for outputting MARVIN's voice.
+![](eye-RGB-board.jpg)
 ### 2.3 Sensor Board
-#sensor-board-heading
+#sensor-board-heading  
+All of MARVIN's sensors connect to the sensorboard. Most are powere via the sensorboard's 5V power supply. The X and X are powered via the power distribution board.  
+It should be noted that the sensorboard has a header pin cable that connects to the power distribution board. This cable ensures that XXXX.
+
 ### 2.4 The Intel Next Unit of Computing (NUC)
-#nuc-heading
+#nuc-heading  
+The NUC is the central computer for MARVIN. it is a desktop PC that runs Ubuntu Linux. MARVIN's 'operating system' is ROS, this sits on top of the true operating system, Ubuntu.  
+All of MARVIN's software is within the NUC.
 ### 2.5 The Segway Robotic Mobility Platform (RMP)
-#rmp-heading
+#rmp-heading  
 ### 2.6 Power Distribution board and MARVIN's power distribution system
 #power-distribution-board-heading
 The power distribution board is not strictly the centralised control for MARVIN's power system. The NUC is powered independantly to the power distribution board via a buck convertor and a battery pack.  
@@ -67,17 +88,50 @@ The power distribution board is not strictly the centralised control for MARVIN'
 Three 8000mAh, 20V [discharge specs? Talk to Tim] LiPo battery packs are used to fully operate MARVIN without a tether for power. One powers the NUC, two supply power to the power distribution board via a splitter cable, with two pairs of bullet connectors.  
 **It should be noted that MARVIN has no capability for battery voltage / charge management and when using LiPO batteries you should have your own system in place for monitoring battery voltage (a screamer circuit for example) and all precautions from the technicians should be strictly adhered to.**  
 If you're unsure about *anything* to do with handling and use of LiPo batteries, talk to Tim and Jason.  
-LiPo batteries create Hydrogen Flouride gas when they are dropped, used below thier *safe* voltage level, overcharged or punctured. This can happen from regular use, and if you take care of them it won;t cause a problem as this gas is still contained by the plastic sealing over the battery (hence why soemtime LiPo packs can be puffy).
+LiPo batteries create Hydrogen Flouride gas when they are dropped, used below thier *safe* voltage level, overcharged or punctured. This can happen from regular use, and if you take care of them it won't cause a problem as this gas is still contained by the plastic sealing over the battery (hence why LiPo packs sometimes appear puffy).  
+  
+The batteries for MARVIN are carried in a rack just above the RMP. Shown below.  
+![](marvin-battery-rack.jpg)
 
-#### 2.6.2 
+#### 2.6.2 Power Distribution  
+Most of MARVIN's power requirements are handled by the power distribution board. Shown below.
+![](marvin-powerboard1.jpg)  
+  
+The Segway RMP, the NUC and most of the peripherals connected to the NUC (the xbox 360 controller reciever and the sensorboard) are powered seperatly from the power distribution board. The NUC recieves power from a buck converter, which take input from one of the batteries as discussed above and shown below.   
+
+![](marvin-buck.jpg)   
+  
+The power distribution board has three power rails: 5V, 12V and 24V.  
+Each power rail has a blue LED to indicate power.
+The power distribution board has a header pin array near the bottom left corner (just above the IC). This is for connecting to the sensorboard. If the 5V rail LED is not on, ensure this head pin array is connected to the sensorboard.
+For more information what voltages are found at each plug see the schematic below.  
+![](powerboard-schem.png)
 ### 2.7 Torso and head
-#torso-and-head-heading
+#torso-and-head-heading  
 MARVIN's torso is controlled by a series of linear actuators and subsequently a driver for these linear actuators. Communication from the NUC to the driver for the linear actuators is handled by the [torso control board](#torso-control-board-heading). MARVIN's torso can extend in various directions and subsequently various poses. 
-MARVIN's head and neck is actuted by two servo motors, these are driven directly from the torso control board. The head is equiped with two RGB eyes and a spotlight.
+  
+![](marvin-LA.jpg)  
+
+MARVIN's head and neck is actuted by two servo motors, these are driven directly from the torso control board. The head is equiped with two RGB eyes and a spotlight.    
+  
+
 
 ## 3. MARVIN's Software Systems
+#software-heading  
+### 3.1 Robot Operating System (ROS)
+MARVIN runs Robot Operating System (ROS).  
+ROS is designed to be a highly modular and abstracted software ecosystem.  
+because of this, the ROS code base and ecosystem is *huge*
+
+### 3.2 MARVIN's Software Architecture and hierarchy  
+
+![](control-architecture-diagram.png)
+
+
+![](manual-control-diagram.png)
 
 ## 4. Getting Started  
+#getting-started-heading  
 Here is the step by step process to get MARVIN operational.
 ### 4.1 Power
 First, ensure that there is adequate power supplied to the NUC and the power board.  
@@ -142,3 +196,13 @@ MARVIN has a range of launch files for testing various aspects of functionality.
 
 
 
+### 4.4 Operation  
+To control MARVIN's movment manually, you will need to esnrue the xbox 360 controller is turned on. 
+
+At full functionality* MARVIN can move linearly back and forward, and twist.  
+The manual control can be toggled on and off with 'X' and 'Y' buttons. And movemmjent can be toggled on and with the 'A' and 'B' buttons respectively. 
+
+Below you will find the control scheme.   
+![](control-scheme-diagram.png)  
+*At the time of writing, MARVIN is currently unable to engage in twisting motion.  
+It is suspected this is to do with removing the Kinect 2 sensor. As it plays an important role through the control flow from command to movement.
